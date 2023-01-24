@@ -59,13 +59,25 @@ function saveToLocalStorage(event){
     // two ways to acheive goal
 //  WITH DOM CONENT LOADED
     window.addEventListener("DOMContentLoaded",()=>{
-        console.log("success");
-        var dom=localStorage;
-        var domkey=Object.keys(dom);
-        domkey.forEach((key)=>{
-            var detailfordom=JSON.parse(dom.getItem(key));
-            showUserOnScreen(detailfordom);
-        })
+
+        axios.get("https://crudcrud.com/api/649ba74b5d66483188c15f81988148a9/appointmentdata")
+        .then((respone) =>{
+            console.log(respone)
+
+            for(var i=0;i<respone.data.length;i++){
+                showUserOnScreen(respone.data[i])
+            }
+        })
+        .catch((err) =>{
+            console.log(err)
+        })
+    //     console.log("success");
+    //     var dom=localStorage;
+    //     var domkey=Object.keys(dom);
+    //     domkey.forEach((key)=>{
+    //         var detailfordom=JSON.parse(dom.getItem(key));
+    //         showUserOnScreen(detailfordom);
+    //     })
     
     })
 
