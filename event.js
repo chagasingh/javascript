@@ -9,8 +9,18 @@ function saveToLocalStorage(event){
         category:category,
     }
    var myObjnew=JSON.stringify(myObj);
-    localStorage.setItem(category,myObjnew);
-    showUserOnScreen(myObj)
+
+   axios.post("https://crudcrud.com/api/649ba74b5d66483188c15f81988148a9/appointmentdata",myObj)
+   .then((respone) =>{
+        showUserOnScreen(respone.data)
+        console.log(respone)
+   })
+   .catch((err) =>{
+        console.log(err)
+   })
+
+    // localStorage.setItem(category,myObjnew);
+    //showUserOnScreen(myObj)
 }
 
     function showUserOnScreen(myObj){
