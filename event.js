@@ -26,15 +26,23 @@ function saveToLocalStorage(event){
     function showUserOnScreen(myObj){
         const parentEle=document.getElementById('listOfItems')
         const childEle =document.createElement('li')
-        childEle.textContent=myObj.amount+'--'+myObj.description+'--'+myObj.category+'--'
+        childEle.textContent=myObj._id+'--'+myObj.amount+'--'+myObj.description+'--'+myObj.category+'--'
         const deleteBtn =document.createElement('input')
         deleteBtn.type='button'
         deleteBtn.style.backgroundColor='red'
         deleteBtn.style.color='white'
         deleteBtn.value='X'
         deleteBtn.onclick=() => {
-            localStorage.removeItem(myObj.category)
-            parentEle.removeChild(childEle)
+            axios.delete(`https://crudcrud.com/api/649ba74b5d66483188c15f81988148a9/appointmentdata/${myObj._id}`)
+            .then((respone) =>{
+                parentEle.removeChild(childEle)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+            //localStorage.removeItem(myObj.category)
+            
         }
 
         const editBtn =document.createElement('input')
@@ -43,8 +51,15 @@ function saveToLocalStorage(event){
         editBtn.style.backgroundColor='green'
         editBtn.value='Edit'
         editBtn.onclick=() => {
-            localStorage.removeItem(myObj.category)
-            parentEle.removeChild(childEle)
+            axios.delete(`https://crudcrud.com/api/649ba74b5d66483188c15f81988148a9/appointmentdata/${myObj._id}`)
+            .then((respone) =>{
+                parentEle.removeChild(childEle)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+            //localStorage.removeItem(myObj.category)
+            //parentEle.removeChild(childEle)
 
             document.getElementById('amount').value=myObj.amount
             document.getElementById('description').value=myObj.description
