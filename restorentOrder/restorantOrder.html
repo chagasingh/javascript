@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>TRACKE YOUR EXPENCE</title>
+</head>
+<body style="text-align:center" style="background-color: rgb(181, 255, 8);">
+    <form style="background-color:rgb(9, 11, 11);"  onsubmit="saveToLocalStorage(event)"><br>
+        <h1 style="color:rgb(255, 255, 255);">Restorent Booking App</h1>
+        <p style="color: rgb(242, 255, 4);">Book your order Now....</p>
+        <hr><br>
+        <div class="mb-3">
+            <label for="amount" class="form-label" style="color: azure;">ENTER AMOUNT OF DISH:</label>
+            <input type="number" class="form-control" id="amount" name="amount">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label" style="color: azure;">ORDERED DISH NAME :</label>
+            <input type="text" class="form-control" id="description" name="description" required>
+        </div><br>
+        <div class="mb-3">
+            <label for="tableno" style="color: azure;"> CHOOSE A TABLE:</label>
+            <select id="tableno" name="tableno">
+                <option value="TABLE 1">TABLE 1</option>
+                <option value="TABLE 2">TABLE 2</option>
+                <option value="TABLE 3">TABLE 3</option>
+              </select>
+        </div><br>
+        <button type="submit" class="btn btn-warning btn-lg">SEND ORDER TO CHEIF</button>
+        <br><br><br>
+    </form><br>
+
+    <h1>Restorent Orders :</h1><hr>
+    <h3>TABLE 1 orders:</h3>
+    <ul id="table 1"></ul>
+    <h3>TABLE 2 orders:</h3>
+    <ul id="table 2"></ul>
+    <h3>TABLE 3 orders:</h3>
+    <ul id="table 3"></ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>   
+<script src="restorantOrder.js" ></script>
+</body>
